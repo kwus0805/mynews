@@ -10,15 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-    Route::group(['prefix' => 'admin'], function() {
-        Route::get('news/create', 'Admin\NewsController@add');
-//10.課題３
-       Route::get('XXX','AAAController@bbb');
-//10.課題４
-        Route::get('admin/profile/create','admin\ProfileController@add')
-        Route::get('admin/profile/edit','admin\ProfileController@edit')
+Route::get('/',function(){
+  return view('welcome');
+  Route::group(['prefix' => 'admin'],function(){
+  });
+  Route::get('news/create','Admin\NewsController@add');
+  //10.3課題
+  Route::get('XXX','AAAController@bbb');
+  //10.4課題
+  Route::get('admin/profile/create','admin\ProfileController@add');
+  Route::get('admin/profile/edit','admin\ProfileController@edit');
 
 });
