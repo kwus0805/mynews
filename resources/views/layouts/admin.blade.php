@@ -39,8 +39,11 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <!-- Right Side Of Navbar -->
+                      <ul class="navbar-nav mr-auto">
+                      </ul>
                         <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
+                        <ul class="navbar-nav ml-auto">
                           <!-- Authentication Links -->
                                                   {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
                                                   @guest
@@ -67,9 +70,7 @@
                                                       @endguest
                         </ul>
 
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                        </ul>
+
                     </div>
                 </div>
             </nav>

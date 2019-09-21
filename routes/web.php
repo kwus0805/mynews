@@ -17,10 +17,13 @@ Route::get('/',function(){
   //10.3課題
   Route::get('XXX','AAAController@bbb');
   //10.4課題
-  Route::group(['prefix' => 'admin'],function(){
-   Route::get('profile/create','Admin\ProfileController@add')->middleware('auth');
-   Route::get('profile/edit','Admin\ProfileController@edit')->middleware('auth');
+  Route::group(['prefix' => 'admin' , 'middleware' => 'auth'],function(){
+   Route::get('profile/create','Admin\ProfileController@add');
+   Route::get('profile/edit','Admin\ProfileController@edit');
    Route::get('news/create','Admin\NewsController@add');
+   Route::post('news/create', 'Admin\NewsController@create'); # 追記
+   Route::post('profile/create','Admin\ProfileController@create');#14課題３
+   Route::post('profile/edit','Admin\ProfileController@update');#14課題６
   });
 
 
@@ -28,8 +31,3 @@ Route::get('/',function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-//ログインしていない時のリダイレクトの処理
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
-});
